@@ -28,12 +28,11 @@ class TestStringCalculator(unittest.TestCase):
     
     def test_sum_with_newlines(self):
         result = self.calculator.add("1\n2,3")
-        self.assertEqual(result, 6)  # 1 + 2 + 3 = 6
-    
-    # Test case with multiple newlines and commas
+        self.assertEqual(result, 6)
+        
     def test_sum_with_multiple_newlines(self):
         result = self.calculator.add("1\n2\n3,4")
-        self.assertEqual(result, 10)  # 1 + 2 + 3 + 4 = 10
+        self.assertEqual(result, 10) 
 
 if __name__ == "__main__":
     unittest.main()
