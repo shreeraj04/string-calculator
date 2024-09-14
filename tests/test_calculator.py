@@ -25,6 +25,15 @@ class TestStringCalculator(unittest.TestCase):
     def test_sum_of_large_number_of_values(self):
         result = self.calculator.add("10,20,30,40,50,60,70,80,90,100")
         self.assertEqual(result, 550)
+    
+    def test_sum_with_newlines(self):
+        result = self.calculator.add("1\n2,3")
+        self.assertEqual(result, 6)  # 1 + 2 + 3 = 6
+    
+    # Test case with multiple newlines and commas
+    def test_sum_with_multiple_newlines(self):
+        result = self.calculator.add("1\n2\n3,4")
+        self.assertEqual(result, 10)  # 1 + 2 + 3 + 4 = 10
 
 if __name__ == "__main__":
     unittest.main()
