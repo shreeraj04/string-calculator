@@ -59,5 +59,17 @@ class TestStringCalculator(unittest.TestCase):
     def test_mixed_large_and_small_numbers(self):
         result = self.calculator.add("1000,1001,1002,5")
         self.assertEqual(result, 1005)
+
+    def test_custom_delimiter_of_any_length(self):
+        result = self.calculator.add("//[***]\n1***2***3")
+        self.assertEqual(result, 6)
+
+    def test_multiple_single_character_delimiters(self):
+        result = self.calculator.add("//[*][%]\n1*2%3")
+        self.assertEqual(result, 6)
+
+    def test_multiple_multi_character_delimiters(self):
+        result = self.calculator.add("//[***][%%%]\n1***2%%%3")
+        self.assertEqual(result, 6)
 if __name__ == "__main__":
     unittest.main()
