@@ -12,6 +12,7 @@ class StringCalculator:
         
         # Convert string to list to check negative number
         num_list_int = [int(num) for num in num_list if num]
+        num_list_int = [num for num in num_list_int if num <= 1000]
         self._check_for_negatives(num_list_int)
 
         return sum(num_list_int)
